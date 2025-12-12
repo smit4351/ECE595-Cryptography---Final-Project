@@ -1,0 +1,75 @@
+# cat /var/log/optee_attacks/attack_peripheral_isolation_test_*.txt
+=== Attack Execution: peripheral_isolation_test ===
+Timestamp: Thu Jan  1 01:38:07 UTC 1970
+Target Address: 0xc0000000
+Timeout: 60s
+Actual Duration: 60s
+
+=== Proc Interface Output ===
+=== Peripheral Isolation Test Results ===
+
+No tests run yet.
+Use: echo 'test <peripheral>' > /proc/peripheral_test
+Options: usb, emmc, gpio, dma, all
+
+=== Kernel Messages ===
+
+=== Attack Execution: peripheral_isolation_test ===
+Timestamp: Thu Jan  1 01:55:19 UTC 1970
+Target Address: 0xc0000000
+Timeout: 60s
+Actual Duration: 60s
+
+=== Proc Interface Output ===
+=== Peripheral Isolation Test Results ===
+
+Peripheral: USB
+  Address: 0x3f980000
+  Can Map: YES
+  DMA Capable: YES ⚠️
+  Isolation Bypass Possible: YES ⚠️⚠️
+
+Peripheral: EMMC
+  Address: 0x3f300000
+  Can Map: YES
+  DMA Capable: NO
+  Isolation Bypass Possible: NO
+
+Peripheral: GPIO
+  Address: 0x3f200000
+  Can Map: YES
+  DMA Capable: NO
+  Isolation Bypass Possible: NO
+
+Peripheral: DMA
+  Address: 0x3f007000
+  Can Map: YES
+  DMA Capable: NO
+  Isolation Bypass Possible: NO
+
+=== Kernel Messages ===
+[ 6860.001757] [PERIPH_TEST] === Testing USB Controller ===
+[ 6860.008632] [PERIPH_TEST] Testing: USB (0x3f980000, 4096 bytes)
+[ 6860.016181] [PERIPH_TEST] ✓ USB: Successfully mapped (virt: 0000000055aae78a)
+[ 6860.025225] [PERIPH_TEST]   Control Register Value: 0x001c0001
+[ 6860.032842] [PERIPH_TEST] ⚠ USB: DMA CAPABILITY DETECTED!
+[ 6860.040238] [PERIPH_TEST] ⚠⚠ USB: ISOLATION BYPASS POSSIBLE
+[ 6860.048100] [PERIPH_TEST] Test complete: ⚠ VULNERABLE
+[ 6860.055276] [PERIPH_TEST] === Testing EMMC Controller ===
+[ 6860.062698] [PERIPH_TEST] Testing: EMMC (0x3f300000, 4096 bytes)
+[ 6860.070844] [PERIPH_TEST] ✓ EMMC: Successfully mapped (virt: 00000000b68586c6)
+[ 6860.082606] [PERIPH_TEST]   Control Register Value: 0x00000000
+[ 6860.090839] [PERIPH_TEST]   No DMA capability detected
+[ 6860.098388] [PERIPH_TEST] Test complete: ✓ OK
+[ 6860.105339] [PERIPH_TEST] === Testing GPIO ===
+[ 6860.112248] [PERIPH_TEST] Testing: GPIO (0x3f200000, 4096 bytes)
+[ 6860.120767] [PERIPH_TEST] ✓ GPIO: Successfully mapped (virt: 0000000031c8662f)
+[ 6860.132966] [PERIPH_TEST]   Control Register Value: 0x00000000
+[ 6860.141323] [PERIPH_TEST]   No DMA capability detected
+[ 6860.148891] [PERIPH_TEST] Test complete: ✓ OK
+[ 6860.155770] [PERIPH_TEST] === Testing DMA Controller ===
+[ 6860.163450] [PERIPH_TEST] Testing: DMA (0x3f007000, 4096 bytes)
+[ 6860.171742] [PERIPH_TEST] ✓ DMA: Successfully mapped (virt: 000000006adbf7a7)
+[ 6860.181470] [PERIPH_TEST]   Control Register Value: 0x00000008
+[ 6860.189686] [PERIPH_TEST]   No DMA capability detected
+[ 6860.197203] [PERIPH_TEST] Test complete: ✓ OK

