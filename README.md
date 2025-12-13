@@ -745,7 +745,7 @@ These instructions walk through installing OP-TEE on a Raspberry Pi 3 Model B Ve
   &nbsp;&nbsp;k. Copy the entire `ece595_testing` directory to the Raspberry Pi 3 (replace IP as needed):
 
   ```bash
-  scp -r ./* root@192.168.0.253:/root/ece595_testing/
+  scp -r ./* root@[ip addr]:/root/ece595_testing/
   ```
 
   &nbsp;&nbsp;&nbsp;&nbsp;i. This will copy over the `~/ece595_testing` directory to the Raspberry Pi 3.  
