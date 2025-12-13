@@ -2,7 +2,7 @@
 
 These instructions walk through installing OP-TEE on a Raspberry Pi 3 Model B Version 1.2 using WSL on a Windows host, and then running attack scripts from the `ece595_testing` repository.
 
-VIDEO DEMO LINK
+VIDEO DEMO LINK:
 https://youtu.be/bucMtfxy3FA
 
 ---
